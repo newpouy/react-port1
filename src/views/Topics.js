@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,13 +10,20 @@ import {
 
 const Topics = () => {
   let match = useRouteMatch();
+  const [data, setData] = useState([
+    { id: 1, title: 'num1'}
+  ])
+  useEffect(() => {
+    fetch('http://localhost:3004/posts')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data, 'in fetch')
+        setData(data)
+      });
+    return () => {
+    }
+  }, [])
   const getTopicList = () => {
-    const data = [
-      { id: 1, title: '포트폴리오1'},
-      { id: 2, title: '포트폴리오2'},
-      { id: 3, title: '포트폴리오3'},
-      { id: 4, title: '포트폴리오4'},
-    ]
     const topicList = data.map(el => {
       return (
         <li>
