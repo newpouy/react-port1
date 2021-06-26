@@ -31,7 +31,7 @@ const Topics = () => {
         </li>
         <li>
           <Link to={`${match.url}/props-v-state`}>
-            Props v. State
+            Props v. Statefdsa
           </Link>
         </li>
       </ul>
