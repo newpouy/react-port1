@@ -11,10 +11,16 @@ import {
 const Topics = () => {
   let match = useRouteMatch();
   const getTopicList = () => {
-    const topicList = [1,2,3].map(el => {
+    const data = [
+      { id: 1, title: '포트폴리오1'},
+      { id: 2, title: '포트폴리오2'},
+      { id: 3, title: '포트폴리오3'},
+      { id: 4, title: '포트폴리오4'},
+    ]
+    const topicList = data.map(el => {
       return (
         <li>
-          <Link to={`${match.url}/${el}`}>{el}</Link>
+          <Link to={`${match.url}/${el.id}`}>{el.title}</Link>
         </li>
       )
     })
